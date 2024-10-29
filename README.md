@@ -1,1 +1,1 @@
-# -Price_Prediction_and_Discount-Analysis_Project
+# Smartphones_Price_Prediction_and_Discount-Analysis_Project
