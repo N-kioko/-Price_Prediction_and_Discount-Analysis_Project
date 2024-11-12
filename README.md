@@ -17,4 +17,4 @@ The data for this project was scraped from the Jumia Kenya platform on October 3
 
 ## Project Scope
 
-![architecture](Architecture.jpg)
+![architecture](images\Architecture.jpg)
