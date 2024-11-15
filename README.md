@@ -2,6 +2,15 @@
 
 ![Jumia Black Friday GIF](https://media.giphy.com/media/DCCDShls7lYyiPLz7l/giphy.gif)
 
+## Table of Contents
+1. [Project Overview](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#project-overview)
+2. [Objectives](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#objectives)
+3. [Metrics of Success](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#metrics-of-success)
+4. [Data Understanding](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#data-understanding)
+5. [Data Preparation](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#data-preparation)
+6. [Data Pre-processing](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#data-pre-processing)
+7. [Modeling](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/index.ipynb#modeling)
+
 ## Project Overview
 
 This project aims to create a predictive pricing model for Jumia retailers to optimize pricing strategies, particularly during high-demand periods like Black Friday. By using historical sales data, competitor pricing, and market trends, the model will automate price adjustments, helping retailers remain competitive and improve sales performance. The goal is to provide data-driven tools that empower retailers to navigate dynamic pricing challenges in Africa's rapidly growing e-commerce market.
