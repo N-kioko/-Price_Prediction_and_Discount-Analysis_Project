@@ -160,4 +160,4 @@ Rank is a significant predictor of review count, with changes in product rank co
 ## For More Information
 ***
 
-See the full analysis in the [Juptyer Notebook](index.ipynb) or review the[Presentation](Presentation.pdf)
+See the full analysis in the [Juptyer Notebook](index.ipynb) or review the [Presentation](Presentation.pdf)
