@@ -136,6 +136,7 @@ Extreme Gradient Boosting showed almost identical performance to Gradient Boosti
 
 ## Model of Choice
 *** 
+
 Our preferred model, XGBoost, shows excellent performance with very low error rates and high predictive accuracy.
 
 **MAE (Mean Absolute Error)** is close to 0.001 across training, validation, and test sets, indicating minimal prediction error and strong generalization.
@@ -145,14 +146,18 @@ Our preferred model, XGBoost, shows excellent performance with very low error ra
 XGBoost's ability to handle complex data through boosting and regularization, combined with its high accuracy and interpretability, makes it a robust choice for this task. Despite slight performance gains from neural networks in some cases, XGBoost remains highly efficient and effective.
 
 ## Findings
+***
 
 **Rank Impact:** There is a negative relationship between product rank and the number of reviews. Higher-ranked products tend to have fewer reviews, possibly due to review saturation, while lower-ranked products receive more reviews.
 
 **Page Impact:** The position of a product on a page does not significantly affect the number of reviews it receives (p-value = 0.504), suggesting that factors like product satisfaction, rather than page placement, influence review frequency.
 
 ## Conclusion
+***
 
 Rank is a significant predictor of review count, with changes in product rank correlating to changes in review volume. However, product placement on a page does not significantly impact the number of reviews, indicating that rank plays a more important role in driving review activity than page position.
 
 ## For More Information
+***
+
 See the full analysis in the [Juptyer Notebook](index.ipynb) or review the[Presentation](Presentation.pdf)
