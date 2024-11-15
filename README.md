@@ -15,6 +15,11 @@
 9. [Deployment](#deployment)
 10. [Conclusion](#conclusion)
 
+## Project Scope
+***
+
+![architecture](images/Architecture.jpg)
+
 ## Project Overview
 ***
 
@@ -48,11 +53,6 @@ Success Criteria:
 ***
 
 The data for this project was scraped from the Jumia Kenya platform on October 31, 2024, focusing on 12,000 smartphones listed by popularity. The scraping process used Beautiful Soup and Pandas and the data was saved in a CSV file `jumia_phones.csv`. For a detailed look at the web scraping process, refer to the [Web Scraping Script](Scrapped_data.ipynb) The data is accessible for review in the Data Repository [Data](https://github.com/N-kioko/Smartphones_Price_Prediction_and_Discount_Analysis_Project/blob/main/Data/jumia_phones.csv)
-
-## Project Scope
-***
-
-![architecture](images/Architecture.jpg)
 
 ## Data Preparation
 ***
@@ -154,5 +154,5 @@ XGBoost's ability to handle complex data through boosting and regularization, co
 
 Rank is a significant predictor of review count, with changes in product rank correlating to changes in review volume. However, product placement on a page does not significantly impact the number of reviews, indicating that rank plays a more important role in driving review activity than page position.
 
-# For More Information
+## For More Information
 See the full analysis in the [Juptyer Notebook](index.ipynb) or review the[Presentation](Presentation.pdf)
