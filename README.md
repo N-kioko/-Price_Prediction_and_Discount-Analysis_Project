@@ -10,6 +10,7 @@
 4. [Data Understanding](#data-understanding)
 5. [Data Preparation](#data-preparation)
 6. [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+8. [Hyothesis Testing](#hypothesis-testing)
 7. [Data Pre-processing](#data-pre-processing)
 8. [Modeling](#modeling)
 9. [Deployment](#deployment)
@@ -78,6 +79,43 @@ The focus of this analysis is on univariate and bivariate relationships with pri
 
 ![Correlation matrix](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/images/Heatmap.png)
 
+## Hypothesis Testing
+***
+
+### Hypothesis 1
+
+Assess the relationship between buyer reviews and product pricing let us set up the hypothesis test as follows:
+
+Hypotheses
+**Null Hypothesis (H₀)**: There is no relationship between buyer reviews and product pricing. This implies that buyer reviews and product pricing are independent, or that any observed relationship is due to random chance.
+
+**Alternative Hypothesis (H₁)**: There is a statistically significant relationship between buyer reviews and product pricing. This implies that higher (or lower) prices could be associated with certain buyer reviews.
+
+##### **Findings** 
+Statistical Significance: The p-value from the test is 0.0000, which is well below the significance threshold of 0.05. This means we can reject the null hypothesis and conclude that there is a statistically significant relationship between product pricing and the number of buyer reviews.
+Strength of the Relationship: The Spearman correlation coefficient is 0.1536, indicating a weak positive relationship. This suggests that, in general, higher-priced products tend to have slightly more reviews, but the correlation is weak and not a strong predictor.
+
+#### **Conlusion:**
+This is an indication that price alone has minimal influence on review volume. Instead, factors like product quality, marketing, and brand reputation likely play a larger role. Businesses should prioritize improving product visibility, marketing efforts, and customer experience over relying on pricing strategies to increase reviews. A holistic approach that includes advertising and promotions can be more effective in driving both purchases and reviews.
+
+### Hypothesis 2
+
+To test whether there is a relationship between the product search rank position and the Number of reviews.
+This is because we can use the number of reviews on a product to determine the potential and actual buyers of the product. 
+
+Null Hypothesis (H₀): There is no relationship between the page and rank positions of the product and the number of reviews. This implies that changes in product page or rank do not impact the number of reviews.
+
+Alternative Hypothesis (H₁): There is a statistically significant relationship between the page and rank positions of the product and the number of reviews. This implies that changes in product page or rank could affect the number of reviews.
+
+##### **Findings** 
+Rank Impact: The negative relationship between Rank and the number of reviews suggests that products with higher ranks (e.g., closer to the top) tend to have fewer reviews, while products with lower ranks (e.g., further down the list) tend to have more reviews. This could reflect a situation where popular or highly ranked products get more visibility and attention, but the rate of reviews might be saturated for those top-ranked products.
+
+Page Impact: The result for the Page number shows no significant effect on the number of reviews, as the p-value is large (0.504). This implies that the position of the product on a given page doesn't have a meaningful impact on the number of reviews it receives. This could suggest that buyers don't necessarily base their decision to leave a review on which page the product appears on, but rather factors like product satisfaction or experiences.
+
+#### **Conlusion:**
+Rank is a statistically significant predictor of the number of reviews, meaning that changes in product rank are related to changes in review counts.
+Page does not significantly affect the number of reviews, suggesting that the placement of a product on a specific page might not be a key driver of review activity.
+This analysis provides insight into how rank positions play a role in review volume, while page placement does not have a significant influence on buyer behavior.
 
 ## Data Pre-Processing
 ***
