@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Phone Price Prediction</h2>
+        <form id="predictForm">
+            <!-- Dropdown for Brands -->
+            <label for="brand">Select Brand</label>
+            <select id="brand" name="brand" required>
+                <option value="" disabled selected>Choose a brand</option>
+                <option value="Infinix Hot">Infinix Hot</option>
+                <option value="Infinix Hot 40I">Infinix Hot 40I</option>
+                <option value="Infinix Smart 8">Infinix Smart 8</option>
+                <option value="Itel A18">Itel A18</option>
+                <option value="Itel S23">Itel S23</option>
+                <option value="Oale Pop 8">Oale Pop 8</option>
+                <option value="Oppo A17K">Oppo A17K</option>
+                <option value="Oppo A83 4Gb Ram">Oppo A83 4Gb Ram</option>
+                <option value="Samsung Galaxy A05">Samsung Galaxy A05</option>
+                <option value="Samsung Galaxy A05S">Samsung Galaxy A05S</option>
+                <option value="Samsung Galaxy A15">Samsung Galaxy A15</option>
+                <option value="Tecno Pop 8">Tecno Pop 8</option>
+                <option value="Tecno Pova 6 Neo">Tecno Pova 6 Neo</option>
+                <option value="Tecno Spark">Tecno Spark</option>
+                <option value="Tecno Spark 20">Tecno Spark 20</option>
+                <option value="Tecno Spark 20C">Tecno Spark 20C</option>
+                <option value="Villaon V20 Se">Villaon V20 Se</option>
+                <option value="Xiaomi Redmi 13C">Xiaomi Redmi 13C</option>
+                <option value="Xiaomi Redmi 14C">Xiaomi Redmi 14C</option>
+                <option value="Xiaomi Redmi A3">Xiaomi Redmi A3</option>
+                <option value="Xiaomi Redmi Note 13">Xiaomi Redmi Note 13</option>
+            </select>
+
+            <!-- Dropdown for Colors -->
+            <label for="color">Select Color</label>
+            <select id="color" name="color" required>
+                <option value="" disabled selected>Choose a color</option>
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+                <option value="Crystal Green">Crystal Green</option>
+                <option value="Cyber White">Cyber White</option>
+                <option value="Elemental Blue">Elemental Blue</option>
+                <option value="Energetic Orange">Energetic Orange</option>
+                <option value="Gravity Black">Gravity Black</option>
+                <option value="Luxurious Gold">Luxurious Gold</option>
+                <option value="Midnight Black">Midnight Black</option>
+                <option value="Mystery White">Mystery White</option>
+                <option value="Navy Blue">Navy Blue</option>
+                <option value="Shiny Gold">Shiny Gold</option>
+                <option value="Silver">Silver</option>
+                <option value="Speed Black">Speed Black</option>
+                <option value="Starry Black">Starry Black</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+
+            <!-- Numeric Inputs -->
+            <label for="screen_size">Screen Size (inches)</label>
+            <input type="number" id="screen_size" name="screen_size" required>
+
+            <label for="ram">RAM (GB)</label>
+            <input type="number" id="ram" name="ram" required>
+
+            <label for="rom">ROM (GB)</label>
+            <input type="number" id="rom" name="rom" required>
+
+            <label for="warranty">Warranty (Years)</label>
+            <input type="number" id="warranty" name="warranty" required>
+
+            <label for="camera">Camera (MP)</label>
+            <input type="number" id="camera" name="camera" required>
+
+            <label for="battery_power">Battery Power (mAh)</label>
+            <input type="number" id="battery_power" name="battery_power" required>
+
+            <label for="sim_count">Number of SIMs</label>
+            <input type="number" id="sim_count" name="sim_count" required>
+
+            <button type="button" id="predictButton">Predict Price</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
