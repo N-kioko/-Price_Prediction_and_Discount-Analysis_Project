@@ -81,48 +81,22 @@ This step involves dealing with the missing values.
 ## Exploratory Data Analysis (EDA)
 ***
 
-The focus of this analysis is on univariate and bivariate relationships with price as the target variable. By examining correlations between price and features such as brand, specifications (e.g., screen size, RAM, battery power), and ratings, we aim to uncover patterns that influence pricing. This helps identify factors driving price differences across brands and offers insights into the smartphone market's pricing dynamics.
+The focus of this analysis is on univariate and bivariate relationships with price as the target variable. By examining correlations between price and features such as brand, specifications (e.g., screen size, RAM, battery power), 
+nd ratings, we aim to uncover patterns that influence pricing. This helps identify factors driving price differences across brands and offers insights into the smartphone market's pricing dynamics.
 
 ![Correlation matrix](https://github.com/N-kioko/Jumia_Smartphones_Price_Prediction-_Optimizing_Retail_Strategies_through_Data_Analytics/blob/main/images/Heatmap.png)
 
 ****
 ## Hypothesis Testing
 ***
-
-### Hypothesis 1
-
-Assess the relationship between buyer reviews and product pricing let us set up the hypothesis test as follows:
-
-Hypotheses
-**Null Hypothesis (H₀)**: There is no relationship between buyer reviews and product pricing. This implies that buyer reviews and product pricing are independent, or that any observed relationship is due to random chance.
-
-**Alternative Hypothesis (H₁)**: There is a statistically significant relationship between buyer reviews and product pricing. This implies that higher (or lower) prices could be associated with certain buyer reviews.
-
-##### **Findings** 
-Statistical Significance: The p-value from the test is 0.0000, which is well below the significance threshold of 0.05. This means we can reject the null hypothesis and conclude that there is a statistically significant relationship between product pricing and the number of buyer reviews.
-Strength of the Relationship: The Spearman correlation coefficient is 0.1536, indicating a weak positive relationship. This suggests that, in general, higher-priced products tend to have slightly more reviews, but the correlation is weak and not a strong predictor.
-
-#### **Conlusion:**
-This is an indication that price alone has minimal influence on review volume. Instead, factors like product quality, marketing, and brand reputation likely play a larger role. Businesses should prioritize improving product visibility, marketing efforts, and customer experience over relying on pricing strategies to increase reviews. A holistic approach that includes advertising and promotions can be more effective in driving both purchases and reviews.
-
-### Hypothesis 2
-
-To test whether there is a relationship between the product search rank position and the Number of reviews.
-This is because we can use the number of reviews on a product to determine the potential and actual buyers of the product. 
-
-Null Hypothesis (H₀): There is no relationship between the page and rank positions of the product and the number of reviews. This implies that changes in product page or rank do not impact the number of reviews.
-
-Alternative Hypothesis (H₁): There is a statistically significant relationship between the page and rank positions of the product and the number of reviews. This implies that changes in product page or rank could affect the number of reviews.
-
-##### **Findings** 
-Rank Impact: The negative relationship between Rank and the number of reviews suggests that products with higher ranks (e.g., closer to the top) tend to have fewer reviews, while products with lower ranks (e.g., further down the list) tend to have more reviews. This could reflect a situation where popular or highly ranked products get more visibility and attention, but the rate of reviews might be saturated for those top-ranked products.
-
-Page Impact: The result for the Page number shows no significant effect on the number of reviews, as the p-value is large (0.504). This implies that the position of the product on a given page doesn't have a meaningful impact on the number of reviews it receives. This could suggest that buyers don't necessarily base their decision to leave a review on which page the product appears on, but rather factors like product satisfaction or experiences.
-
-#### **Conlusion:**
-Rank is a statistically significant predictor of the number of reviews, meaning that changes in product rank are related to changes in review counts.
-Page does not significantly affect the number of reviews, suggesting that the placement of a product on a specific page might not be a key driver of review activity.
-This analysis provides insight into how rank positions play a role in review volume, while page placement does not have a significant influence on buyer behavior.
+Two hypotheses were tested to examine relationships between buyer reviews, product pricing, and search rank. For pricing,
+the null hypothesis was rejected, as a p-value of 0.0000 indicated a statistically significant but weak positive relationship
+(Spearman coefficient = 0.1536), suggesting price has minimal influence on review volume compared to factors like product 
+quality and marketing. For search rank, a significant negative relationship was found between rank and reviews, with 
+lower-ranked products receiving more reviews, possibly due to saturation of reviews for top-ranked items. However,page 
+position showed no significant impact on review volume (p-value = 0.504). Overall, rank affects review activity, 
+while pricing and page placement have weaker roles, emphasizing the importance of visibility, marketing, and customer
+experience in driving reviews.
 
 ****
 ## Data Pre-Processing
@@ -156,135 +130,64 @@ In summary it helps detect overfitting or underfitting by observing how the mode
 
 ### *Polynomial Regression*
 ***
-
-The unregularized polynomial model overfitted, while the regularized model (MAE of 0.414) reduced overfitting and improved generalization.
-
-The Results are shown below;
-
-Training Mean Absolute Error: 2.9466277940538195  
-Training R-squared: 0.9999745761936665  
-
-Validation Mean Absolute Error: 2.69005859375  
-Validation R-squared: 0.9999945730846875
-
-The Polynomial Regression model demonstrates excellent performance, with extremely high R² scores (~0.999) for both training and validation, indicating it explains nearly all the variance in the data. The low MAE values (2.95 for training and 2.69 for validation) suggest accurate predictions, and the minimal difference between training and validation performance indicates strong generalization and no immediate signs of overfitting
-
-To handle Overffiting concerns, we perform regularization on the polynomial regression model btaining the results below;
-
-*Cross Validated Training MAE: 3.0786443927176013*  
-*Cross Validated Validation MAE: 3.204614864194705*
-
-There is an increase in the training MAE from 2.95 to 3.08 after applying Ridge regularization. This indicates that the Ridge regularization has improved the model's ability to fit the training data without overfitting and also reducing the error.
-The validation MAE has also increased from 2.69 to 3.20. This improvement suggests that Ridge regularization has led to better generalization. Without regularization the model likely overfitted to the training data leading to worse performance on the validation data.
-At this point the Cross validated model with the Ridge regularization becomes a better model. 
-
+The unregularized polynomial regression model overfitted the data, achieving low errors on training (MAE: 2.95, R²: 0.99997)
+and validation (MAE: 2.69, R²: 0.99999) but raising concerns about generalization. Applying Ridge regularization mproved 
+generalization by balancing the fit, increasing training MAE slightly (from 2.95 to 3.08) and validation MAE (from 2.69 to 
+3.20). These results indicate reduced overfitting, as the regularized model performs better on unseen data. 
+The Ridge-regularized model, with cross-validated MAE values (Training: 3.08, Validation: 3.20), is a more robust choice,
+demonstrating improved predictive accuracy and generalization.
 
 ### *Decision Tree Regressor*
 ***
-Using a Decision Tree Regressor offers an opportunity to explore non-linear relationships without relying on polynomial feature transformations. Its flexibility in capturing complex patterns and interpretability can provide additional insights into feature interactions. With the ability to control overfitting through hyperparameters, it serves as a valuable comparison to the Polynomial Regression model.
-
-**Results**
-
-Training MAE: 2.9115961048250703  
-Training MSE: 567.6559180290025  
-Training R2: 0.9999745763085536  
-
-Validation MAE: 2.653941648242073  
-Validation MSE: 126.17641589283846    
-Validation R2: 0.999994572548963
-
-The Decision Tree Regressor outperforms the regularized Polynomial Regression model on validation data, with a slightly lower MAE (2.91 vs. 3.20), making it the preferred model due to better generalization. While Ridge Polynomial Regression prevents overfitting, it may not capture non-linear relationships as effectively as the Decision Tree.
-To address potential overfitting further, the next step is to implement a Random Forest. This ensemble model combines predictions from multiple decision trees trained on random subsets of data and features, reducing variance and mitigating overfitting while enhancing predictive performance.
+The Decision Tree Regressor effectively captures non-linear relationships, outperforming the regularized Polynomial 
+Regression model on validation data with a lower MAE (2.65 vs. 3.20). It demonstrates strong performance, with high R² 
+scores for both training (0.99997) and validation (0.99999), making it the preferred model due to better generalization. 
+While Ridge Polynomial Regression mitigates overfitting, it may not capture complex patterns as well as the Decision Tree. 
+To further reduce overfitting and enhance performance, the next step is to implement a Random Forest, which leverages 
+ensemble learning to improve accuracy and robustness.
 
 ### *Random Forest*
 ***
-**Results**  
-Train Mean Absolute Error:2.911141680813885  
-Train Squared Error: 567.657198969589  
-Train R-squared: 0.9999745762511839  
+he Random Forest Regressor demonstrates performance nearly identical to the Decision Tree model, with similar MAE (2.65), 
+MSE, and R² values on both training and validation sets, indicating excellent predictive accuracy and generalization. While
+both models perform exceptionally well, the Random Forest is preferred for its added stability and robustness, making it
+better suited for handling more complex data in future applications.
 
-Val Mean Absolute Error:2.65287085174152  
-Val Squared Error: 126.10278535863903  
-Val R-squared: 0.9999945757161643
+#### Hyperparameter Tuning The Random Forest
+***
+Hyperparameter tuning for the Random Forest Regressor yielded the best parameters (max_depth=None, max_features='sqrt', 
+min_samples_leaf=1, min_samples_split=2, n_estimators=300). The tuned model's performance closely mirrors the baseline, 
+with minimal differences in training and validation MAE (~2.91 and ~2.66), MSE, and R² (~0.999). The next step is testing 
+the model on unseen data to evaluate its real-world performance.
 
-The Random Forest Regressor model shows nearly identical results to the Decision Tree model. The MAE, MSE, and R² values are extremely close between the two models suggesting that the Random Forest model has provided similar performance on the training and validation sets. 
-Both models perform excellently but if we are aiming for even more stability or anticipate working with more complex data in the future then Random Forest will be our generally preferred model.
+#### Results on Test Data
 
-### Hyperparameter Tuning The Random Forest
-
-**Results**
-Fitting 5 folds for each of 324 candidates, totalling 1620 fits
-Best parameters found:  {'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 300}
-Training MAE: 2.914158376759247  
-Training MSE: 567.6561767948326  
-Training R-squared: 0.9999745762969642  
-
-Validation MAE: 2.6561234795254838  
-Validation MSE: 126.21566001026244  
-Validation R-squared: 0.9999945708608857  
-
-The Hyperparameter tuning results of the random forest is closely similar to the baseline random forest model. We proceed to test our model at this point on the unseen data just to have a glimpse of our results.
-
-##### Results on Test Data
 **Results**
 Test MAE: 3.234590638120747  
 Test MSE: 154.96864882228948  
 Test R-squared: 0.9999928582376032  
 
-The MAE on the test data is 3.23, which is close to the validation MAE of 2.66 and training MAE of 2.91. This indicates that the model's predictions are relatively accurate and consistent across all datasets (training, validation, and test).MSE (Mean Squared Error): The MSE of 154.97 on the test data is also consistent with the validation (126.21) and training MSE (557.66). It’s possible that the MSE for the training set is artificially high due to model overfitting or because it might not be the optimal degree for the polynomial. The validation and test MSE values being closer to each other is a good sign that the model generalizes well to unseen data, but the discrepancy with the training MSE suggests that the model could be overfitting the training data.
-
+The MAE on the test data is 3.23, which is close to the validation MAE of 2.66 and training MAE of 2.91. 
+This indicates that the model's predictions are relatively accurate and consistent across all datasets (training, validation,
+and test).MSE (Mean Squared Error): The MSE of 154.97 on the test data is also consistent with the validation(126.21) and training MSE (557.66). It’s possible that the MSE for the training set is artificially high due to model 
+overfitting or because it might not be the optimal degree for the polynomial. The validation and test MSE values being closer to each other is a good sign that the model generalizes well to unseen data, but the discrepancy with the training MSE suggests that the model could be overfitting the training data.
 
 ### *Gradient boosting*
 ***  
 
-Gradient Boosting is an ensemble technique which combines multiple weak learners (decision trees) to form a strong predictor. It often outperforms individual models like decision trees or random forests especially in terms of prediction accuracy. GBR uses a learning rate parameter that controls the contribution of each tree to the final prediction, which helps prevent overfitting when set appropriately.
-
-**Results**    
-Fitting 5 folds for each of 11 candidates, totalling 55 fits  
-Best Learning Rate: {'learning_rate': 1.0}  
-Train Mean Absolute Error: 2.911596105259541  
-Train Squared Error: 567.6559180290026  
-Train R-squared: 0.9999745763085536  
-
-Val Mean Absolute Error: 2.653941648666689  
-Val Squared Error: 126.17641589311461  
-Val R-squared: 0.999994572548963  
-
-**Results on Test Data**    
-Test MAE: 3.2322991453294785  
-Test MSE: 154.9322760370495  
-Test R-squared: 0.9999928599138506  
-
- **Summary**    
-The Random Forest and Gradient Boost model both exhibit very similar performance on the test data with nearly identical MAE, MSE, and R-squared values.
-
-MAE is extremely close (51.87 for GBR vs. 51.85 for RF), indicating both models make similar magnitude errors on average.
-
-MSE also shows comparable values (24,065.99 for GBR vs. 24,035.17 for RF), reinforcing the fact that both models are making similar prediction errors, although GBR has a slightly higher MSE (indicating slightly larger errors at times).
-
-R-squared values are essentially identical, with both models achieving an R-squared of approximately 0.9989, meaning both models explain almost 99.89% of the variance in the test data. This suggests that both models are highly accurate in capturing the underlying trends in the data. 
-
-The Random Forest model given the slight advantage in MSE with Random Forest having marginally better performance and slightly faster training time becomes a more desirable model to proceed with.
+Gradient Boosting and Random Forest models show very similar performance on test data. Gradient Boosting achieved a test MAE
+of 3.23, MSE of 154.93, and R² of 0.9999, while Random Forest showed slightly better results with marginally lower MSE and
+faster training time. Both models capture nearly 99.89% of the variance in the test data, indicating high prediction 
+accuracy. Despite the minimal differences, Random Forest is preferred due to its slightly better performance and efficiency.
 
 ### *Extreme Gradient Boost*
+
 ***
-
-**Results**  
-Train Mean Absolute Error:2.9137093098958333  
-Train Squared Error: 567.6559284558826  
-Train R-squared: 0.9999745763080865  
-
-Val Mean Absolute Error:2.6561374240451388  
-Val Squared Error: 126.17636266562674  
-Val R-squared: 0.9999945725512525  
-
-**Results on Test Data**   
-Test Mean Absolute Error: 3.234494222005208  
-Test Mean Squared Error: 154.93344412386418  
-Test R-squared: 0.9999928598600191  
-
-**Summary**  
-In training the XGBoost has a very slight edge in MSE 23,776.80 compared to Random Forest 23,778.22 but the difference is negligible. The MAE for Extreme Gradient boost is 53.90 which is slightly higher than the Random Forest 53.89. The r2 score for both models are similar.
+Extreme Gradient Boosting (XGBoost) and Random Forest models exhibit nearly identical performance on both training and test 
+data. XGBoost has a slight edge in test MSE (23,776.80 vs. 23,778.22 for Random Forest), but the difference is negligible. 
+Similarly, the test MAE for XGBoost is marginally higher (53.90 vs. 53.89 for Random Forest). Both models achieve comparable
+R² scores, indicating excellent predictive accuracy. Given the minimal differences, either model could be used, with 
+preference based on specific implementation needs or computational efficiency
 
 ### *Neural Networks*
 ***
@@ -300,18 +203,15 @@ The results of the neural networks is worse than even our baseline linear regres
 ## Model of Choice
 ****
 
-Random Forest has the smallest MAE (51.85), followed very closely by XGBoost and Gradient Boosting (both 51.88).
-The difference is very slight across models but Random Forest edges out slightly with marginally lower error on average.
+MAE: Random Forest (51.85) outperforms XGBoost and Gradient Boosting (both 51.88), with a marginal difference.
+MSE: Random Forest has the lowest MSE (24,035.17), slightly better than Gradient Boosting and XGBoost, which are around 24,065.98.
+R-squared: All three models achieved an almost identical R-squared of 0.99889, explaining 99.89% of the variance in the test data.
 
-Mean Squared Error (MSE):
-Random Forest again has the lowest MSE (24,035.17), with Gradient Boosting and XGBoost both slightly higher at around 24,065.98.
-Lower MSE in Random Forest suggests it has slightly fewer large errors on the test data, though the differences are minimal.
+##### Conclusion
 
-R-squared:
-All three models achieved virtually identical R-squared scores of 0.99889, indicating that each model explains roughly 99.89% of the variance in the test data. This very high R-squared demonstrates that all three models effectively capture the data’s trends.
-
-Conclusion
-While all three models perform similarly and have almost identical test metrics, Random Forest has a slight edge due to its lowest MAE and MSE. If computational efficiency is a factor, Random Forest might be preferred as it generally trains faster than boosting models. However, XGBoost and Gradient Boosting could still be considered if stability and ensemble robustness are priorities.
+All three models are comparable in performance, but Random Forest edges out slightly due to lower MAE and MSE. 
+For computational efficiency, Random Forest is preferable, as it typically trains faster than the boosting
+models. However, XGBoost and Gradient Boosting remain good options if stability and ensemble robustness are prioritized.
 
 ***
 ### Conclusions & Recommendations
@@ -319,7 +219,8 @@ While all three models perform similarly and have almost identical test metrics,
 * There is a statistical relationship between the product rank position and the number of reviews.
 
 To maximize visibility and review engagement the seller could consider the below:
->- Optimize for Rank within Pages: Positioning a product among the top ranks on any page could drive more interactions and reviews.
+>- Optimize for Rank within Pages: Positioning a product among the top ranks on any page could drive more interactions and
+ reviews.
 >- Optimize Product Features and Marketing: Encourage factors that improve a product's rank organically, such as positive customer feedback, competitive pricing, or high ratings, which may help maintain a prominent position on a page.
 
 In summary, while page placement itself isn’t as influential, positioning a product within the top ranks on a visible page matters significantly for customer engagement and reviews. Visibility works more effectively at the in-page rank level than at the broader page level itself.
