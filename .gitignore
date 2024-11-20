@@ -8,3 +8,6 @@ ruth.ipynb
 Scrapped_data.ipynb
 shamla.ipynb
 Smartphone Price Prediction Project.pptx
+.ipynb_checkpoints/
+scaler.pkl
+xgboost_best_model.pkl
