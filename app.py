@@ -2,8 +2,8 @@ import streamlit as st
 import numpy as np
 import joblib
 
-# Load the trained model
-model = joblib.load('rf_updated.pkl')
+# Load the trained model (replace 'random_forest_model.joblib' with your actual file path)
+model = joblib.load('random_forest_model.joblib')
 
 # List of all features (must match your model's training data)
 feature_names = [
