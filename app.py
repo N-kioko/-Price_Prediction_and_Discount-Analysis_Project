@@ -3,13 +3,13 @@ import numpy as np
 import joblib
 
 # Load the trained model
-model = joblib.load('random_forest_model.pkl')
+model = joblib.load('rf_updated.pkl')
 
 # List of all features (must match your model's training data)
 feature_names = [
     'Screen Size', 'RAM', 'ROM', 'Warranty', 'Camera', 'Battery Power', 'Number of SIMs',
     'Brand_Infinix Hot', 'Brand_Infinix Hot 40I', 'Brand_Infinix Smart 8', 'Brand_Itel A18',
-    'Brand_Itel S23', 'Brand_Oale Pop 8', 'Brand_Oppo A17K', 'Brand_Oppo A83 4Gb Ram',
+    'Brand_Itel S23', 'Brand_Oale Pop 8', 'Brand_Oppo A17K', 'Brand_Oppo Aclear83 4Gb Ram',
     'Brand_Samsung Galaxy A05', 'Brand_Samsung Galaxy A05S', 'Brand_Samsung Galaxy A15',
     'Brand_Tecno Pop 8', 'Brand_Tecno Pova 6 Neo', 'Brand_Tecno Spark', 'Brand_Tecno Spark 20',
     'Brand_Tecno Spark 20C', 'Brand_Villaon V20 Se', 'Brand_Xiaomi Redmi 13C',
