@@ -73,10 +73,8 @@ if st.button("Predict Price"):
         # Predict
         prediction = model.predict([features])[0]
         st.success(f"Predicted Phone Price: {prediction:.2f}")
-
-        # Add a button to allow the user to refresh the page and make a new prediction
-        if st.button("Make Another Prediction"):
-            st.experimental_rerun()  # Refresh the page for a new prediction
-
     except Exception as e:
         st.error(f"Error: {str(e)}")
+
+if st.button("Refresh"):
+    st.rerun()
