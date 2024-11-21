@@ -120,9 +120,7 @@ We began with a baseline linear regression model to predict phone prices based o
 
 ### *Linear Regression Model*
 ***
-
-**Baseline MAE (9.29e-12)** suggests overfitting, as the model fits the training data too closely.
-**Cross-Validated MAE (0.0587)** provides a more realistic estimate of performance on unseen data.
+The linear regression model performs well, explaining nearly 99.9% of the variance in the data, as shown by the high R2 scores for both training and validation. However, the relatively large error values (MAE and MSE) suggest it may struggle to capture finer details or complex patterns in the data. While it generalizes well, more advanced models like Random Forest or XGBoost could improve performance if the data includes nonlinear relationships or interactions.
 
 ### K-Folds On Baseline Model
 Cross validation provides a comprehensive understanding of our model’s performance because it tests the model on multiple sets of data reducing the risk of our model’s performance being overly optimistic or pessimistic based on one split.
@@ -183,11 +181,7 @@ accuracy. Despite the minimal differences, Random Forest is preferred due to its
 ### *Extreme Gradient Boost*
 
 ***
-Extreme Gradient Boosting (XGBoost) and Random Forest models exhibit nearly identical performance on both training and test 
-data. XGBoost has a slight edge in test MSE (23,776.80 vs. 23,778.22 for Random Forest), but the difference is negligible. 
-Similarly, the test MAE for XGBoost is marginally higher (53.90 vs. 53.89 for Random Forest). Both models achieve comparable
-R² scores, indicating excellent predictive accuracy. Given the minimal differences, either model could be used, with 
-preference based on specific implementation needs or computational efficiency
+Gradient Boosting and Random Forest show nearly identical performance across all metrics. Both models have a training MAE of 2.91 and a validation MAE of 2.65, indicating high accuracy. Their training R2scores are both 0.99997, and validation R2 scores are 0.99999, showing excellent ability to explain variance and generalize to new data. The validation MSE for Gradient Boosting is 126.18, while for Random Forest, it is 126.10, with only a negligible difference.
 
 ### *Neural Networks*
 ***
