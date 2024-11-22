@@ -197,9 +197,11 @@ The results of the neural networks is worse than even our baseline linear regres
 ## Model of Choice
 ****
 
-MAE: Random Forest (51.85) outperforms XGBoost and Gradient Boosting (both 51.88), with a marginal difference.
-MSE: Random Forest has the lowest MSE (24,035.17), slightly better than Gradient Boosting and XGBoost, which are around 24,065.98.
-R-squared: All three models achieved an almost identical R-squared of 0.99889, explaining 99.89% of the variance in the test data.
+Random Forest has the smallest MAE (2.65), followed very closely by XGBoost and Gradient Boosting 2.66. The difference is very slight across models but Random Forest edges out slightly with marginally lower error on average.
+
+Mean Squared Error (MSE): Random Forest again has the lowest MSE with Gradient Boosting and XGBoost both slightly higher. Lower MSE in Random Forest suggests it has slightly fewer large errors on the test data, though the differences are minimal.
+
+R-squared: All three models achieved virtually identical R-squared scores of 0.99889, indicating that each model explains roughly 99.89% of the variance in the test data. This very high R-squared demonstrates that all three models effectively capture the data’s trends.
 
 ##### Conclusion
 
